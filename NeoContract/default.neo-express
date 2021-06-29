@@ -1,0 +1,60 @@
+{
+  "magic": 711206589,
+  "address-version": 53,
+  "consensus-nodes": [
+    {
+      "tcp-port": 50013,
+      "ws-port": 50014,
+      "rpc-port": 50012,
+      "wallet": {
+        "name": "node1",
+        "accounts": [
+          {
+            "private-key": "83560992099315d41c44365bd7728078faaff221312ab19117cf27104087e723",
+            "script-hash": "Ndb7xgge7msdFV48YRCRTL3QyvMGQYoAkM",
+            "label": null,
+            "is-default": true,
+            "contract": {
+              "script": "0c2103fbfeae1eaf2cf9a0ccfb419ad739a0ff9e84da47ce40be04c57592e3ac2ad5e04156e7b327",
+              "parameters": [
+                "Signature"
+              ]
+            }
+          },
+          {
+            "private-key": "83560992099315d41c44365bd7728078faaff221312ab19117cf27104087e723",
+            "script-hash": "NNWN1k6CejXSXdZmaannYcHgnXnfkPVx3W",
+            "label": "Consensus MultiSigContract",
+            "is-default": false,
+            "contract": {
+              "script": "110c2103fbfeae1eaf2cf9a0ccfb419ad739a0ff9e84da47ce40be04c57592e3ac2ad5e011419ed0dc3a",
+              "parameters": [
+                "Signature"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "wallets": [
+    {
+      "name": "chirag",
+      "accounts": [
+        {
+          "private-key": "38921c670ecbf38d4889e5db306793754d23b53412a5fc7604c8f6c959798ec5",
+          "script-hash": "NVyzTZLxMYb8J6WB3PMy7Vogx13oHugNYP",
+          "label": null,
+          "is-default": true,
+          "contract": {
+            "script": "0c21025d54593108b29b68daeb5d2e279a16512c932e576f351510a17755131d28374a4156e7b327",
+            "parameters": [
+              "Signature"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "settings": {}
+}

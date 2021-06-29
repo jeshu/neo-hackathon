@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EBiKJfX70Io+1Ouw5N1V7s1qxQY6H4WAj8unySEE2u4eLfF+2xs0zebyfqHDpoMd8KrzXYUHs97itfMMJ5zsgg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\SaveGetContract.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jeshubrij\\.nuget\\packages\\neo.smartcontract.framework\\3.0.0-rc3\\neo.smartcontract.framework.3.0.0-rc3.nupkg.sha512"
+  ],
+  "logs": []
+}

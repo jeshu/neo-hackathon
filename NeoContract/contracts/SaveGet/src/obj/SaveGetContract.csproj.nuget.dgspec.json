@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\SaveGetContract.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\SaveGetContract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\SaveGetContract.csproj",
+        "projectName": "SaveGetContract",
+        "projectPath": "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\SaveGetContract.csproj",
+        "packagesPath": "C:\\Users\\jeshubrij\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\jeshubrij\\Projects\\workspaces\\blockchain\\Neon\\NeoContract\\contracts\\SaveGet\\src\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jeshubrij\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Neo.SmartContract.Framework": {
+              "target": "Package",
+              "version": "[3.0.0-rc3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
