@@ -1,11 +1,11 @@
 from boa3.builtin import public
-from boa3.builtin.interop.storage import put, get, find;
+from boa3.builtin.interop.storage import put, get, find
 
-KEY_TEMP = 'temperature';
-KEY_QUALITY = 'temperature';
+KEY_TEMP = 'temperature'
+KEY_QUALITY = 'temperature'
 
-TEMP_RANGE = range(-22, -18);
-QUALITY_MIN = 90;
+TEMP_RANGE = range(-22, -18)
+QUALITY_MIN = 90
 
 
 def validateData(data: int, key: str) -> bool:
@@ -44,7 +44,7 @@ def setMixtureQuality(batchId: str, data: int):
     if isValid == True:
       put(batchId + '5', data)
     else:
-      put(batchId + 'error', 'Quality in step 1 (Mixutre) is not OK, ');
+      put(batchId + 'error', 'Quality in step 1 (Mixutre) is not OK, ')
 
 
 @public
@@ -53,7 +53,7 @@ def setFreezingQuality(batchId: str, data: int):
     if isValid == True:
       put(batchId + '6', data)
     else:
-      put(batchId + 'error', 'Quality in step 2 (Freezing) is not OK, ');
+      put(batchId + 'error', 'Quality in step 2 (Freezing) is not OK, ')
 
 
 @public
@@ -62,7 +62,7 @@ def setPackingQuality(batchId: str, data: int):
     if isValid == True:
       put(batchId + '7', data)
     else:
-      put(batchId + 'error', 'Quality in step 3 (Packing) is not OK, ');
+      put(batchId + 'error', 'Quality in step 3 (Packing) is not OK, ')
 
 
 @public
@@ -71,7 +71,7 @@ def setTemperature(batchId: str, data: int):
   if isValid == True:
     put(batchId + '8', data)
   else:
-    put(batchId + 'error', 'Temperature at factory not in range, ');
+    put(batchId + 'error', 'Temperature at factory not in range, ')
 
 
 @public
@@ -105,7 +105,7 @@ def setTemperatureAtShipmentTransport(batchId: str, data: int):
   if isValid == True:
     put(batchId + '14', data)
   else:
-    put(batchId + 'error', 'Temperature at shipment transport not in range, ');
+    put(batchId + 'error', 'Temperature at shipment transport not in range, ')
 
 
 @public
@@ -119,7 +119,7 @@ def setTemperatureAtWarehouse(batchId: str, data: int):
   if isValid == True:
     put(batchId + '14', data)
   else:
-    put(batchId + 'error', 'Temperature at warehouse not in range, ');
+    put(batchId + 'error', 'Temperature at warehouse not in range, ')
 
 
 @public
@@ -138,7 +138,7 @@ def setTemperatureAtRetailTransport(batchId: str, data: int):
   if isValid == True:
     put(batchId + '19', data)
   else :
-    put(batchId + 'error', 'Temperature at retail transport not in range, ');
+    put(batchId + 'error', 'Temperature at retail transport not in range, ')
     
 
 @public
@@ -152,8 +152,7 @@ def setTemperatureAtStore(batchId: str, data: int):
   if isValid == True:
     put(batchId + '21', data)
   else :
-    put(batchId + 'error', 'Temperature at retail store not in range, ');
-
+    put(batchId + 'error', 'Temperature at retail store not in range, ')
 
 @public
 def setProductOK(batchId: str, data: bool):
@@ -165,17 +164,17 @@ def setExpection(batchId: str, data: bool):
 
 @public
 def getAllInfo(batchId:str) -> list:
-  allInfo = [];
+  allInfo = []
   data = find(batchId)
   for key in data:
-    allInfo.append(bytes.to_str(key) + '|' + bytes.to_str(data[key]));
+    allInfo.append(bytes.to_str(key) + '|' + bytes.to_str(data[key]))
   
   return allInfo;
 
 @public 
 def IsProductOK(batchId:str) -> bool:
-  return bytes.to_bool(get(batchId+'0'));
+  return bytes.to_bool(get(batchId+'0'))
 
 @public 
 def GetExeception(batchId:str) -> str:
-  return bytes.to_str(get(batchId+'error')); 
+  return bytes.to_str(get(batchId+'error'))

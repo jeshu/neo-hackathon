@@ -16,20 +16,23 @@ function App() {
         N3Constanst.userPvtKey,
       ),
     );
-    neoHelper.contractInvoke('addRawMaterialQualityCert',[
+    neoHelper.contractInvoke('setDryfruitsCert',[
       {
         type: 'String',
         value: 'BatchIdTest1',
       },{
         type: 'String',
-        value: 'AZ-123456789',
+        value: 'dry-123456789',
       },
     ]);
-    neoHelper.contractInvoke('getRawMaterialQualityCert',[
+    neoHelper.contractInvoke('setMilkpowderCert',[
       {
         type: 'String',
         value: 'BatchIdTest1',
-      }
+      },{
+        type: 'String',
+        value: 'milk-123456789',
+      },
     ]);
   }, [])
 

@@ -1,4 +1,4 @@
-export const scriptHash = '0xbfcd95181a8855b3ba685ec8054ed6416554b2d2';
+export const scriptHash = '0x4e03da1a506784d75a3653065a811be628f426ff';
 export const rpcAddress = 'http://localhost:50012';
 export const userPvtKey =
-  'f0107312485ce9d0edbcb9b88e1efac42496b277eb65add005616ad66b4de473';
+  '38921c670ecbf38d4889e5db306793754d23b53412a5fc7604c8f6c959798ec5';
