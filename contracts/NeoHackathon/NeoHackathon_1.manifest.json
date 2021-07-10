@@ -372,20 +372,8 @@
                 "safe": false
             },
             {
-                "name": "getAllInfo",
-                "offset": 1254,
-                "parameters": [
-                    {
-                        "name": "batchId",
-                        "type": "String"
-                    }
-                ],
-                "returntype": "Array",
-                "safe": false
-            },
-            {
                 "name": "IsProductOK",
-                "offset": 1333,
+                "offset": 1254,
                 "parameters": [
                     {
                         "name": "batchId",
@@ -396,8 +384,20 @@
                 "safe": false
             },
             {
+                "name": "getAllInfo",
+                "offset": 1286,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Any",
+                "safe": false
+            },
+            {
                 "name": "GetExeception",
-                "offset": 1365,
+                "offset": 1389,
                 "parameters": [
                     {
                         "name": "batchId",
@@ -409,7 +409,7 @@
             },
             {
                 "name": "_initialize",
-                "offset": 1401,
+                "offset": 1425,
                 "parameters": [],
                 "returntype": "Void",
                 "safe": false

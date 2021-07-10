@@ -9,7 +9,7 @@ const Thankyou = (props) => {
   }
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: 450 }} textAlign='left'>
         <Header as='h1' color='blue' textAlign='center'>
           Raw Material Supplier
         </Header>
@@ -27,9 +27,10 @@ const Thankyou = (props) => {
         </Segment.Group>
 
         <Divider color='violet' />
-        <Link to='/'><i aria-hidden="true" className="certificate icon" color="blue"></i>Add more data</Link>
+        <Link to='/'><i aria-hidden="true" className="add icon" color="blue"></i>Add more data</Link>
         <br />
-        <Link to='/'><i aria-hidden="true" className="certificate icon" color="blue"></i>Visit Manufacturing Uint site</Link>
+        <br />
+        <a href='http://localhost:3011'><i aria-hidden="true" className="factory icon" color="blue"></i>Visit Manufacturing Uint site</a>
       </Grid.Column>
     </Grid>
   );

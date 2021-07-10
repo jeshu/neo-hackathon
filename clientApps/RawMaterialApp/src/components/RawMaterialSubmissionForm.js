@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import N3Helper from '../utils/N3Helper';
 import { contract } from '../utils/N3Utils';
+import { v4 as uuidv4 } from 'uuid';
 import * as N3Constanst from '../constansts/Const';
 import {
   Button,
@@ -17,7 +18,7 @@ import { SAVE_DATA } from '../actions';
 const RawMaterialSubmissionForm = (props) => {
   const dispatch = useDispatch();
   const [loggedIn, setisLoggedIn] = useState(props.isLoggedIn);
-  const [batchId, setBatchId] = useState();
+  const [batchId, setBatchId] = useState(uuidv4());
   const [dryFruitCert, setDryfruitsCert] = useState();
   const [milkCert, setMilkCert] = useState();
   const [butterCert, setButterCert] = useState();
@@ -78,11 +79,11 @@ const RawMaterialSubmissionForm = (props) => {
         value: sugerCert,
       },
     ]);
-    dispatch(SAVE_DATA({ butterCert, milkCert, batchId, dryFruitCert }));
+    dispatch(SAVE_DATA({ butterCert, milkCert, batchId, dryFruitCert,sugerCert }));
   };
 
   const onSubmitHanlder = async () => {
-    if (batchId && dryFruitCert && milkCert && butterCert) {
+    if (batchId && dryFruitCert && milkCert && butterCert && sugerCert) {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
@@ -100,7 +101,7 @@ const RawMaterialSubmissionForm = (props) => {
 
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: 450 }} textAlign="left">
         <Header as='h1' color='blue' textAlign='center'>
           Raw Material Supplier
         </Header>
@@ -111,15 +112,10 @@ const RawMaterialSubmissionForm = (props) => {
         </Header>
         <Form size='large'>
           <Segment raised>
-            <Form.Input
-              fluid
-              icon='box'
-              iconPosition='left'
-              placeholder='Please enter batch Id'
-              onChange={(e) => {
-                setBatchId(e.target.value);
-              }}
-            />
+            Batch ID : {batchId}
+            <br/>
+            <br/>
+            Dry Fruits Certificate ID
             <Form.Input
               fluid
               icon='certificate'
@@ -129,6 +125,7 @@ const RawMaterialSubmissionForm = (props) => {
                 setDryfruitsCert(e.target.value);
               }}
             />
+            Milk Certificate ID
             <Form.Input
               fluid
               icon='certificate'
@@ -138,6 +135,7 @@ const RawMaterialSubmissionForm = (props) => {
                 setMilkCert(e.target.value);
               }}
             />
+            Butter Certificate ID
             <Form.Input
               fluid
               icon='certificate'
@@ -147,6 +145,8 @@ const RawMaterialSubmissionForm = (props) => {
                 setButterCert(e.target.value);
               }}
             />
+
+            Suger Certificate ID
             <Form.Input
               fluid
               icon='certificate'
