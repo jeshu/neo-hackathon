@@ -21,9 +21,9 @@ const Thankyou = (props) => {
         </Header>
         <Segment.Group attached='top' textAlign="left">
           <Segment textAlign='left'>Batch ID: {props.batchId}</Segment>
-          <Segment textAlign='left'>Warehour ID: {props.warehouseId}</Segment>
-          <Segment textAlign='left'>Retail Invoice ID: {props.retailInvoiceId}</Segment>
-          <Segment textAlign='left'>Retail Transport ID: {props.retailTransportId}</Segment>
+          <Segment textAlign='left'>Retail Store ID: {props.retailStoreId}</Segment>
+          <Segment textAlign='left'>Batch Recive date: {props.reciveDate}</Segment>
+          <Segment textAlign='left'>Product Sell date: {props.sellDate}</Segment>
         </Segment.Group>
 
         <Divider color='violet' />
