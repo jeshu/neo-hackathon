@@ -13,14 +13,15 @@ import {
   Divider,
 } from 'semantic-ui-react';
 import { SAVE_DATA } from '../actions';
+import { APP_TITLE } from '../Consts';
 
-const RawMaterialSubmissionForm = (props) => {
+const RetailDataView = (props) => {
   const dispatch = useDispatch();
   const [loggedIn, setisLoggedIn] = useState(props.isLoggedIn);
   const [batchId, setBatchId] = useState();
-  const [dryFruitCert, setDryfruitsCert] = useState();
-  const [milkCert, setMilkCert] = useState();
-  const [butterCert, setButterCert] = useState();
+  const [retailStoreId, setRetailStoreId] = useState();
+  const [reciveDate, setReciveDate] = useState();
+  const [sellDate, setSellDate] = useState();
 
   const [error, setError] = useState();
   const [dataSaved, setDataSaved] = useState(false);
@@ -44,7 +45,7 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: dryFruitCert,
+        value: retailStoreId,
       },
     ]);
     neoHelper.contractInvoke('setMilkpowderCert', [
@@ -54,7 +55,7 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: milkCert,
+        value: reciveDate,
       },
     ]);
     neoHelper.contractInvoke('setButterCert', [
@@ -64,14 +65,14 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: butterCert,
+        value: sellDate,
       },
     ]);
-    dispatch(SAVE_DATA({ butterCert, milkCert, batchId, dryFruitCert }));
+    dispatch(SAVE_DATA({ sellDate,  reciveDate, batchId,  retailStoreId }));
   };
 
   const onSubmitHanlder = async () => {
-    if (batchId && dryFruitCert && milkCert && butterCert) {
+    if (batchId && retailStoreId && reciveDate && sellDate) {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
@@ -89,17 +90,18 @@ const RawMaterialSubmissionForm = (props) => {
 
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: 450 }} textAlign='left'>
         <Header as='h1' color='blue' textAlign='center'>
-          Raw Material Supplier
+          {APP_TITLE}
         </Header>
         <Divider />
         <Header as='h3' color='violet' textAlign='center'>
           {/* <Image src='/logo.png' />  */}
-          Raw materials certificate update
+          Retail data update
         </Header>
         <Form size='large'>
-          <Segment raised>
+          <Segment raised textAlign='left'>
+            Batch ID
             <Form.Input
               fluid
               icon='box'
@@ -109,31 +111,36 @@ const RawMaterialSubmissionForm = (props) => {
                 setBatchId(e.target.value);
               }}
             />
+            Retail Store ID
             <Form.Input
               fluid
               icon='certificate'
               iconPosition='left'
-              placeholder='Please enter dry fruits quality certificate ID'
+              placeholder='Please enter retail store ID'
               onChange={(e) => {
-                setDryfruitsCert(e.target.value);
+                setRetailStoreId(e.target.value);
               }}
             />
+            Batch Recive Date
             <Form.Input
               fluid
+              type='date'
               icon='certificate'
               iconPosition='left'
-              placeholder='Please enter milk quality certificate ID'
+              placeholder='Please enter batch revice date'
               onChange={(e) => {
-                setMilkCert(e.target.value);
+                setReciveDate(e.target.value);
               }}
             />
+            Product Selling Date
             <Form.Input
               fluid
+              type='date'
               icon='certificate'
               iconPosition='left'
-              placeholder='Please enter butter quality certificate ID'
+              placeholder='Please enter Selling date'
               onChange={(e) => {
-                setButterCert(e.target.value);
+                setSellDate(e.target.value);
               }}
             />
             <Button color='blue' fluid size='large' onClick={onSubmitHanlder}>
@@ -151,4 +158,4 @@ const mapStateToProps = (state) => {
   return { isLoggedIn: state.login.isLoggedIn };
 };
 
-export default connect(mapStateToProps, null)(RawMaterialSubmissionForm);
+export default connect(mapStateToProps, null)(RetailDataView);

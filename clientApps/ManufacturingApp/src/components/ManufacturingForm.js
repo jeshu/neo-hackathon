@@ -22,6 +22,7 @@ const ManufacturingForm = (props) => {
   const [manufactureDate, setManufactureDate] = useState();
   const [expiryDate, setExpiryDate] = useState();
   const [shipmentId, setShipmentId] = useState();
+  const [shipmentTransportId, setShipmentTransportId] = useState();
   const [shipmentDate, setShipmentDate] = useState();
 
   const [error, setError] = useState();
@@ -79,7 +80,26 @@ const ManufacturingForm = (props) => {
         value: shipmentDate,
       },
     ]);
-    dispatch(SAVE_DATA({ butterCert: shipmentId, milkCert: expiryDate, batchId, dryFruitCert: manufactureDate }));
+    neoHelper.contractInvoke('setShipmentTransportId', [
+      {
+        type: 'String',
+        value: batchId,
+      },
+      {
+        type: 'String',
+        value: shipmentTransportId,
+      },
+    ]);
+    dispatch(
+      SAVE_DATA({
+        batchId,
+        expiryDate,
+        manufactureDate,
+        shipmentId,
+        shipmentDate,
+        shipmentTransportId,
+      }),
+    );
   };
 
   const onSubmitHanlder = async () => {
@@ -95,7 +115,7 @@ const ManufacturingForm = (props) => {
   if (loggedIn !== true) {
     return <Redirect to='/login' />;
   }
-  if(dataSaved === true) {
+  if (dataSaved === true) {
     return <Redirect to='/thanks' />;
   }
 
@@ -110,7 +130,7 @@ const ManufacturingForm = (props) => {
           Manufacturing data update
         </Header>
         <Form size='large'>
-          <Segment raised textAlign="left">
+          <Segment raised textAlign='left'>
             <Form.Input
               fluid
               icon='box'
@@ -123,7 +143,7 @@ const ManufacturingForm = (props) => {
             Manufacturing date
             <Form.Input
               fluid
-              type="date"
+              type='date'
               icon='thumbs up'
               iconPosition='left'
               placeholder='Please enter manufacturing date'
@@ -134,7 +154,8 @@ const ManufacturingForm = (props) => {
             Expiry date
             <Form.Input
               fluid
-              icon='certificate'
+              type='date'
+              icon='thumbs down'
               iconPosition='left'
               placeholder='Please enter expiry date'
               onChange={(e) => {
@@ -144,17 +165,28 @@ const ManufacturingForm = (props) => {
             Shipment ID
             <Form.Input
               fluid
-              icon='certificate'
+              icon='factory'
               iconPosition='left'
               placeholder='Please enter shipmentId'
               onChange={(e) => {
                 setShipmentId(e.target.value);
               }}
             />
+            Shipment Transport ID
+            <Form.Input
+              fluid
+              icon='truck'
+              iconPosition='left'
+              placeholder='Please enter shipmentTransportId'
+              onChange={(e) => {
+                setShipmentTransportId(e.target.value);
+              }}
+            />
             Shipment date
             <Form.Input
               fluid
-              icon='certificate'
+              type='date'
+              icon='boxes'
               iconPosition='left'
               placeholder='Please enter shipmentId'
               onChange={(e) => {

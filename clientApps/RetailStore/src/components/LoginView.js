@@ -10,33 +10,33 @@ import {
   Divider,
 } from 'semantic-ui-react';
 import { LOGIN } from '../actions';
+import { APP_TITLE } from '../Consts';
 
 const LoginView = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
   const [loggedIn, setisLoggedIn] = useState(props.isLoggedIn);
-  useEffect(()=>{
-    setisLoggedIn(props.isLoggedIn)
-  }, [props.isLoggedIn])
+  useEffect(() => {
+    setisLoggedIn(props.isLoggedIn);
+  }, [props.isLoggedIn]);
 
   const onSubmitHanlder = () => {
     if (email && password) {
-      dispatch(LOGIN({isLoggedIn:true}));
+      dispatch(LOGIN({ isLoggedIn: true }));
     }
   };
-  
-  
+
   if (loggedIn === true) {
     return <Redirect to='/' />;
   }
-  
+
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h1' color='blue' textAlign='center'>
-          Raw Material Supplier
+          {APP_TITLE}
         </Header>
         <Divider color='violet' />
         <Header as='h3' color='violet' textAlign='center'>
@@ -75,11 +75,8 @@ const LoginView = (props) => {
   );
 };
 
-
 const mapStateToProps = (state) => {
-  console.log(state);
-   return {isLoggedIn:state.login.isLoggedIn}
-}
-
+  return { isLoggedIn: state.login.isLoggedIn };
+};
 
 export default connect(mapStateToProps, null)(LoginView);

@@ -13,14 +13,15 @@ import {
   Divider,
 } from 'semantic-ui-react';
 import { SAVE_DATA } from '../actions';
+import { APP_TITLE } from '../Consts';
 
 const RawMaterialSubmissionForm = (props) => {
   const dispatch = useDispatch();
   const [loggedIn, setisLoggedIn] = useState(props.isLoggedIn);
   const [batchId, setBatchId] = useState();
-  const [dryFruitCert, setDryfruitsCert] = useState();
-  const [milkCert, setMilkCert] = useState();
-  const [butterCert, setButterCert] = useState();
+  const [warehouseId, setWarehouseId] = useState();
+  const [retailInvoiceId, setRetailInvoiceId] = useState();
+  const [retailTransportId, setTransportId] = useState();
 
   const [error, setError] = useState();
   const [dataSaved, setDataSaved] = useState(false);
@@ -44,7 +45,7 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: dryFruitCert,
+        value: warehouseId,
       },
     ]);
     neoHelper.contractInvoke('setMilkpowderCert', [
@@ -54,7 +55,7 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: milkCert,
+        value: retailInvoiceId,
       },
     ]);
     neoHelper.contractInvoke('setButterCert', [
@@ -64,14 +65,14 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: butterCert,
+        value: retailTransportId,
       },
     ]);
-    dispatch(SAVE_DATA({ butterCert, milkCert, batchId, dryFruitCert }));
+    dispatch(SAVE_DATA({ retailInvoiceId,retailTransportId, batchId, warehouseId }));
   };
 
   const onSubmitHanlder = async () => {
-    if (batchId && dryFruitCert && milkCert && butterCert) {
+    if (batchId && warehouseId && retailInvoiceId && retailTransportId) {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
@@ -91,15 +92,16 @@ const RawMaterialSubmissionForm = (props) => {
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h1' color='blue' textAlign='center'>
-          Raw Material Supplier
+          {APP_TITLE}
         </Header>
         <Divider />
         <Header as='h3' color='violet' textAlign='center'>
           {/* <Image src='/logo.png' />  */}
-          Raw materials certificate update
+          Warehouse and retail data update
         </Header>
         <Form size='large'>
-          <Segment raised>
+          <Segment raised textAlign="left">
+            Batch ID
             <Form.Input
               fluid
               icon='box'
@@ -109,31 +111,34 @@ const RawMaterialSubmissionForm = (props) => {
                 setBatchId(e.target.value);
               }}
             />
+            Warehouse ID
             <Form.Input
               fluid
-              icon='certificate'
+              icon='warehouse'
               iconPosition='left'
-              placeholder='Please enter dry fruits quality certificate ID'
+              placeholder='Please enter warehouse ID'
               onChange={(e) => {
-                setDryfruitsCert(e.target.value);
+                setWarehouseId(e.target.value);
               }}
             />
+            Shipment ID
             <Form.Input
               fluid
-              icon='certificate'
+              icon='inbox'
               iconPosition='left'
-              placeholder='Please enter milk quality certificate ID'
+              placeholder='Please enter shipment ID'
               onChange={(e) => {
-                setMilkCert(e.target.value);
+                setRetailInvoiceId(e.target.value);
               }}
             />
+            Shipment Transport ID
             <Form.Input
               fluid
-              icon='certificate'
+              icon='truck'
               iconPosition='left'
-              placeholder='Please enter butter quality certificate ID'
+              placeholder='Please enter transport ID'
               onChange={(e) => {
-                setButterCert(e.target.value);
+                setTransportId(e.target.value);
               }}
             />
             <Button color='blue' fluid size='large' onClick={onSubmitHanlder}>

@@ -1,9 +1,12 @@
 import React from 'react';
 import {connect } from  'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Grid, Header, Segment, Divider } from 'semantic-ui-react';
 
 const Thankyou = (props) => {
+  if(props.isLoggedIn !== true) {
+    return <Redirect />
+  }
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
@@ -32,6 +35,7 @@ const Thankyou = (props) => {
   );
 };
 const mapStateToProps = (state) =>({
-  ...state.rawMaterial
+  ...state.rawMaterial,
+  isLoggedIn: state.login.isLoggedIn 
 })
 export default connect(mapStateToProps)(Thankyou);
