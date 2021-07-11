@@ -1,6 +1,24 @@
 #  Food product traceability & transparency using Neo Blockchain :-
 
+
+## Projects:
+
+- [Neo Smart Contract](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/contracts/FoodSafetyContract) 
+- Client Apps:
+  - [Manufacturing App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/ManufacturingApp)
+  - [Raw Material App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RawMaterialApp)
+  - [Reader App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/ReaderApp)
+  - [Retail Store App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RetailStore)
+  - [Warehouse App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/Warehouse)
+- IOT Server(https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/IoTServer)
+
 ## Features
+
+- Provide complete transparency of Food product processing from raw material procurement to final delivery to end consumer.
+- Defining the Quality ownership and accountability of  various stack holders of the  product at every stage.
+- Provide complete traceability of product. 
+- In blockchain based distributed eco system each participants can have separate app to interact and create a new block.
+- In case of Quality check failure measured by any IoT devices, further blocks cannot be created
 
 ## High Level Architecture Diagram: 
 
@@ -18,7 +36,7 @@
 - We need to install [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
 - Thereafter install the Neo3 Boa dependencies. Navigate to the folder where you have taken the checkout of the solution in your local machine and perform below listed steps:
 ```sh
-cd contracts\NeoHackathon
+cd contracts\FoodSafetyContract
 python -m venv venv
 venv\Scripts\activate.bat
 pip install neo3-boa
