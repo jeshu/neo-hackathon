@@ -1,12 +1,17 @@
-https://dojo.coz.io/article/hello_world_dapp
+# RawMaterial App
+## Installation
+Run the below command in order to install the dependencies for the raw material app:
+```sh
+npm install 
+```
+## Running the App
+Run the below command in order to start the raw material app.Please note this app runs on port **3010**.
+```sh
+npm start 
+```
 
-butter to flavor
-freezing to Viscocity
 
-Warehouse | Shippemt ReceiveDate
-Warehouse | Save and Retail flow - 2 submit button
+## Application Screenshot
 
-Retail | Selling not required
-
-
-IoT to be launched from fromedn
+![Output](/images/rawmaterialapp/rawmaterialappsnapshot1.png)
+![Output](/images/rawmaterialapp/rawmaterialappsnapshot2.png)
