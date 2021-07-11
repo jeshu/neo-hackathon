@@ -1,5 +1,14 @@
 #  Food product traceability & transparency using Neo Blockchain :-
 
+## Features
+
+```sh
+- Provide complete transparency of Food product processing from raw material procurement to final delivery to end consumer.
+- Defining the Quality ownership and accountability of  various stack holders of the  product at every stage.
+- Provide complete traceability of product. 
+- In blockchain based distributed eco system each participants can have separate app to interact and create a new block.
+- In case of Quality check failure measured by any IoT devices, further blocks cannot be created
+```
 
 ## Projects:
 
@@ -11,14 +20,6 @@
   - [Retail Store App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RetailStore)
   - [Warehouse App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/Warehouse)
 - [IOT Server](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/IoTServer)
-
-## Features
-
-- Provide complete transparency of Food product processing from raw material procurement to final delivery to end consumer.
-- Defining the Quality ownership and accountability of  various stack holders of the  product at every stage.
-- Provide complete traceability of product. 
-- In blockchain based distributed eco system each participants can have separate app to interact and create a new block.
-- In case of Quality check failure measured by any IoT devices, further blocks cannot be created
 
 ## High Level Architecture Diagram: 
 
