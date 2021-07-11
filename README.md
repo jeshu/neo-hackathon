@@ -10,7 +10,7 @@
 - [Neo3 Boa](https://dojo.coz.io/neo3/boa/getting-started.html)
 - [CityOfZion Neon-js(version 3)](https://dojo.coz.io/neo3/neon-js/docs/)
 - [Python](https://www.python.org/)
-- [Node Package Manager](https://www.npmjs.com/)
+- [React](https://reactjs.org/)
 
 ## Installation
 
