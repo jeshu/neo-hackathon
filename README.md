@@ -34,6 +34,8 @@
 
 ## Installation
 
+Below dependencies were installed to develop this project:
+
 - We need to install [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
 - Thereafter install the Neo3 Boa dependencies. Navigate to the folder where you have taken the checkout of the solution in your local machine and perform below listed steps:
 ```sh
