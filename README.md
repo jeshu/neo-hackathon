@@ -40,13 +40,27 @@
 ```sh
 dotnet tool install Neo.Express -g
 ```
+- Install the [Visual Studio code](https://code.visualstudio.com/download) and install the [Neo Blockchain Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) in that.
 
 
 ## Running the Demo
 
-Open your favorite Terminal and run these commands.
+- Navigate to the folder where the solution has been checked out and open the **contracts** folder inside that in the visual studio code.
+- Then start the Neo Express by clicking on the button highlighted below:
 
-- In order to start the blockchain in the Neo Express run below command:
+![Output](/images/neoexpress/snapshot1.png)
+
+- Once the Neo Express is started, transfer some NEO and GAS from 'genesis' account to 'chirag' account as shown below.
+
+![Output](/images/neoexpress/snapshot2.png)
+
+- Then Deploy the FoodSafetyContract smart contract using the option shown below:
+
+![Output](/images/neoexpress/snapshot3.png)
+
+- Then for the all ClientApps under the **clientApps** replace the contract hash with the one generated from the step above.In order to replace it, navigate to the <<clientApp>>/src/constansts/Const.js and replace the scriptHash key.
+
+- Thereafter navigate to all the client Apps listed on the Projects section and follow the steps to install them on your local environment.
 
 
 ## Development Path
