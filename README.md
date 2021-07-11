@@ -34,6 +34,23 @@
 
 ## Installation
 
+- Install the [Dot Net SDK](https://dotnet.microsoft.com/download)
+- Download [Dotnet Express](https://github.com/neo-project/neo-express) using below command:
+
+```sh
+dotnet tool install Neo.Express -g
+```
+
+
+## Running the Demo
+
+Open your favorite Terminal and run these commands.
+
+- In order to start the blockchain in the Neo Express run below command:
+
+
+## Development Path
+
 Below listed steps were performed to develop this project:
 
 - Installed [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
@@ -55,9 +72,7 @@ neo3-boa FoodSafetyContract.py
 npm install -g @cityofzion/neon-js@next
 ```
 
-## Running the Demo
 
-Open your favorite Terminal and run these commands.
 
 ## Product Future Enhancements
 
