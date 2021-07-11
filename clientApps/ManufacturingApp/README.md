@@ -13,5 +13,5 @@ npm start
 
 ## Application Screenshot
 
-![Output](/images/manufacturingapp/screenshot1.png)
-![Output](/images/manufacturingapp/screenshot2.png)
+![Output](/images/manufacturingapp/appscreenshot1.png)
+![Output](/images/manufacturingapp/appscreenshot2.png)
