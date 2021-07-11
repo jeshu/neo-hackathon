@@ -4,7 +4,7 @@
 
 ## High Level Architecture Diagram: 
 
-![Output](/images/blockchain_architecture_diagram.png)
+![Output](/images/architecture/blockchain_architecture_diagram.png)
 
 ## Technology Stack
 
@@ -24,7 +24,7 @@ venv\Scripts\activate.bat
 pip install neo3-boa
 ```
 - Install the [NPM](https://nodejs.org/en/download/)
-- Thereafter install the Neon js by performing below listed steps. This will install Neon js globally on your machine.
+- Then install the Neon js by performing below listed steps. This will install Neon js globally on your machine.
 ```sh
 npm install -g @cityofzion/neon-js@next
 ```
