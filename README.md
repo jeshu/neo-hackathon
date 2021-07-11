@@ -10,7 +10,7 @@
   - [Reader App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/ReaderApp)
   - [Retail Store App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RetailStore)
   - [Warehouse App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/Warehouse)
-- IOT Server(https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/IoTServer)
+- [IOT Server](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/IoTServer)
 
 ## Features
 
