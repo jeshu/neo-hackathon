@@ -21,7 +21,6 @@ const RetailDataView = (props) => {
   const [batchId, setBatchId] = useState();
   const [retailStoreId, setRetailStoreId] = useState();
   const [reciveDate, setReciveDate] = useState();
-  const [sellDate, setSellDate] = useState();
 
   const [error, setError] = useState();
   const [dataSaved, setDataSaved] = useState(false);
@@ -38,7 +37,7 @@ const RetailDataView = (props) => {
         N3Constanst.userPvtKey,
       ),
     );
-    neoHelper.contractInvoke('setDryfruitsCert', [
+    neoHelper.contractInvoke('setRetailStoreId', [
       {
         type: 'String',
         value: batchId,
@@ -48,7 +47,7 @@ const RetailDataView = (props) => {
         value: retailStoreId,
       },
     ]);
-    neoHelper.contractInvoke('setMilkpowderCert', [
+    neoHelper.contractInvoke('setRetailReciveDate', [
       {
         type: 'String',
         value: batchId,
@@ -58,21 +57,11 @@ const RetailDataView = (props) => {
         value: reciveDate,
       },
     ]);
-    neoHelper.contractInvoke('setButterCert', [
-      {
-        type: 'String',
-        value: batchId,
-      },
-      {
-        type: 'String',
-        value: sellDate,
-      },
-    ]);
-    dispatch(SAVE_DATA({ sellDate,  reciveDate, batchId,  retailStoreId }));
+    dispatch(SAVE_DATA({ reciveDate, batchId,  retailStoreId }));
   };
 
   const onSubmitHanlder = async () => {
-    if (batchId && retailStoreId && reciveDate && sellDate) {
+    if (batchId && retailStoreId && reciveDate) {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
@@ -130,17 +119,6 @@ const RetailDataView = (props) => {
               placeholder='Please enter batch revice date'
               onChange={(e) => {
                 setReciveDate(e.target.value);
-              }}
-            />
-            Product Selling Date
-            <Form.Input
-              fluid
-              type='date'
-              icon='certificate'
-              iconPosition='left'
-              placeholder='Please enter Selling date'
-              onChange={(e) => {
-                setSellDate(e.target.value);
               }}
             />
             <Button color='blue' fluid size='large' onClick={onSubmitHanlder}>

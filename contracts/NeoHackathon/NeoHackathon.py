@@ -1,59 +1,103 @@
 from boa3.builtin import public
-from boa3.builtin.interop.storage import put, get, find;
+from boa3.builtin.interop.storage import put, get, find
+from typing import Any, cast
+
+KEY_TEMP = 'temperature'
+KEY_QUALITY = 'temperature'
+
+TEMP_RANGE = range(-22, -18)
+QUALITY_MIN = 90
+LIST_MAP = [
+    "Dry fruits certificate",
+    "Milk certificate",
+    "Flavor certificate",
+    "Suger certificate",
+    "Mixture manufacture",
+    "Freezing manufacture",
+    "Packing manufacture",
+    "Temperature at manufacture",
+    "Expiry Date",
+    "Manufacturing Date",
+    "Shipment ID",
+    "Shipment Date",
+    "Shipment Transport ID",
+    "Temperature At Shipment Transport",
+    "Warehouse ID",
+    "Warehouse Recive Date"
+    "Temperature At Warehouse",
+    "Retail Transport ID",
+    "Retail Invoice ID",
+    "Temperature At Retail Transport",
+    "Retail Store ID",
+    "Recive at Retail date",
+    "Temperature At Store"
+]
 
 
-@public
-def validateTemperature(data: str, : str):
-  if(key == 'temperature') :
-    int temperature = int(data);  
-    return True
-  return False
+def validateData(data: int, key: str) -> bool:
+    if(key == KEY_TEMP and data in TEMP_RANGE):
+        return True
+    if(key == KEY_QUALITY and data > QUALITY_MIN):
+        return True
+    if(key == KEY_QUALITY and data > QUALITY_MIN):
+        return True
+    return False
+
+
 @public
 def setDryfruitsCert(batchId: str, data: str):
-    validateData(data, 'dryfruits')
     put(batchId + '1', data)
 
 
 @public
 def setMilkpowderCert(batchId: str, data: str):
-    validateData(data, 'milk')
     put(batchId + '2', data)
 
 
 @public
-def setButterCert(batchId: str, data: str):
-    validateData(data, 'butter')
+def setFlavorCert(batchId: str, data: str):
     put(batchId + '3', data)
 
 
 @public
 def setSugerCert(batchId: str, data: str):
-    validateData(data, 'suger')
     put(batchId + '4', data)
 
 
 @public
-def setMixtureQuality(batchId: str, data: str):
-    validateData(data, 'step1quality')
-    put(batchId + '5', data)
+def setMixtureQuality(batchId: str, data: int):
+    isValid = validateData(data, KEY_QUALITY)
+    if isValid == True:
+        put(batchId + '5', data)
+    else:
+        put(batchId + 'error', 'Quality in step 1 (Mixutre) is not OK, ')
 
 
 @public
-def setFrezzingQuality(batchId: str, data: str):
-    validateData(data, 'step2quality')
-    put(batchId + '6', data)
+def setFreezingQuality(batchId: str, data: int):
+    isValid = validateData(data, KEY_QUALITY)
+    if isValid == True:
+        put(batchId + '6', data)
+    else:
+        put(batchId + 'error', 'Quality in step 2 (Freezing) is not OK, ')
 
 
 @public
-def setPackingQuality(batchId: str, data: str):
-    validateData(data, 'step3quality')
-    put(batchId + '7', data)
+def setPackingQuality(batchId: str, data: int):
+    isValid = validateData(data, KEY_QUALITY)
+    if isValid == True:
+        put(batchId + '7', data)
+    else:
+        put(batchId + 'error', 'Quality in step 3 (Packing) is not OK, ')
 
 
 @public
-def setTemperature(batchId: str, data: str):
-    validateData(data, 'temperature')
-    put(batchId + '8', data)
+def setTemperature(batchId: str, data: int):
+    isValid = validateData(data, KEY_TEMP)
+    if isValid == True:
+        put(batchId + '8', data)
+    else:
+        put(batchId + 'error', 'Temperature at factory not in range, ')
 
 
 @public
@@ -77,14 +121,17 @@ def setShipmentDate(batchId: str, data: str):
 
 
 @public
-def setShipmentTransportId(batchId: str, data: str):
+def setShipmentTransportId(batchId: str, data: int):
     put(batchId + '13', data)
 
 
 @public
-def setTemperatureAtShipmentTransport(batchId: str, data: str):
-    validateData(data, 'temperature')
-    put(batchId + '14', data)
+def setTemperatureAtShipmentTransport(batchId: str, data: int):
+    isValid = validateData(data, KEY_TEMP)
+    if isValid == True:
+        put(batchId + '14', data)
+    else:
+        put(batchId + 'error', 'Temperature at shipment transport not in range, ')
 
 
 @public
@@ -93,54 +140,84 @@ def setWarehouseId(batchId: str, data: str):
 
 
 @public
-def setTemperatureAtWarehouse(batchId: str, data: str):
-    validateData(data, 'temperature')
+def setWarehouseReciveDate(batchId: str, data: str):
     put(batchId + '16', data)
 
 
 @public
-def setRetailTransportId(batchId: str, data: str):
-    put(batchId + '17', data)
+def setTemperatureAtWarehouse(batchId: str, data: int):
+    isValid = validateData(data, KEY_TEMP)
+    if isValid == True:
+        put(batchId + '17', data)
+    else:
+        put(batchId + 'error', 'Temperature at warehouse not in range, ')
 
 
 @public
-def setRetailInvoice(batchId: str, data: str):
+def setRetailTransportId(batchId: str, data: str):
     put(batchId + '18', data)
 
 
 @public
-def setTemperatureAtRetailTransport(batchId: str, data: str):
-    validateData(data, 'temperature')
+def setRetailInvoice(batchId: str, data: str):
     put(batchId + '19', data)
 
 
 @public
-def setRetailReciveDate(batchId: str, data: str):
-    put(batchId + '20', data)
+def setTemperatureAtRetailTransport(batchId: str, data: int):
+    isValid = validateData(data, KEY_TEMP)
+    if isValid == True:
+        put(batchId + '20', data)
+    else:
+        put(batchId + 'error', 'Temperature at retail transport not in range, ')
 
 
 @public
-def setTemperatureAtStore(batchId: str, data: str):
-    validateData(data, 'temperature')
+def setRetailStoreId(batchId: str, data: str):
     put(batchId + '21', data)
 
+@public
+def setRetailReciveDate(batchId: str, data: str):
+    put(batchId + '22', data)
+
+
+@public
+def setTemperatureAtStore(batchId: str, data: int):
+    isValid = validateData(data, KEY_TEMP)
+    if isValid == True:
+        put(batchId + '23', data)
+    else:
+        put(batchId + 'error', 'Temperature at retail store not in range, ')
 
 @public
 def setProductOK(batchId: str, data: bool):
     put(batchId + '0', data)
 
+
 @public
 def setExpection(batchId: str, data: bool):
     put(batchId + 'error', data)
 
+
 @public
-def getAllInfo(batchId:str) :
-  return find(batchId)
+def IsProductOK(batchId: str) -> bool:
+    return bytes.to_bool(get(batchId+'0'))
 
-@public 
-def IsProductOK(batchId:str) :
-  return get(batchId+'0');
 
-@public 
-def GetExeception(batchId:str) :
-  return get(batchId+'error'); 
+@public
+def getAllInfo(batchId: str) -> Any:
+    allInfo = []
+    data = find(batchId)
+    i = 0
+    while data.next():
+        currentObject = data.value
+        storedValue = currentObject[1]
+        bytesData = bytes.to_str(cast(bytes, storedValue))
+        allInfo.append(LIST_MAP[i] + "|" + bytesData)
+        i = i+1
+    return allInfo
+
+
+@public
+def GetExeception(batchId: str) -> str:
+    return bytes.to_str(get(batchId+'error'))

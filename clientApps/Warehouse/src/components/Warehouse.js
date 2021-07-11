@@ -11,70 +11,115 @@ import {
   Header,
   Segment,
   Divider,
+  Tab,
 } from 'semantic-ui-react';
 import { SAVE_DATA } from '../actions';
 import { APP_TITLE } from '../Consts';
 
-const RawMaterialSubmissionForm = (props) => {
+const Warehouse = (props) => {
   const dispatch = useDispatch();
   const [loggedIn, setisLoggedIn] = useState(props.isLoggedIn);
   const [batchId, setBatchId] = useState();
   const [warehouseId, setWarehouseId] = useState();
+  const [warehouseReciveDate, setWarehouseReciveDate] = useState();
   const [retailInvoiceId, setRetailInvoiceId] = useState();
   const [retailTransportId, setTransportId] = useState();
 
   const [error, setError] = useState();
+  const [activeTab, setActiveTab] = useState(0);
   const [dataSaved, setDataSaved] = useState(false);
 
   useEffect(() => {
     setisLoggedIn(props.isLoggedIn);
   }, [props.isLoggedIn]);
 
+  const neoHelper = new N3Helper(
+    contract(
+      N3Constanst.scriptHash,
+      N3Constanst.rpcAddress,
+      N3Constanst.userPvtKey,
+    ),
+  );
   const saveBlockChainData = async () => {
-    const neoHelper = new N3Helper(
-      contract(
-        N3Constanst.scriptHash,
-        N3Constanst.rpcAddress,
-        N3Constanst.userPvtKey,
-      ),
-    );
-    neoHelper.contractInvoke('setDryfruitsCert', [
-      {
-        type: 'String',
-        value: batchId,
-      },
-      {
-        type: 'String',
-        value: warehouseId,
-      },
-    ]);
-    neoHelper.contractInvoke('setMilkpowderCert', [
-      {
-        type: 'String',
-        value: batchId,
-      },
-      {
-        type: 'String',
-        value: retailInvoiceId,
-      },
-    ]);
-    neoHelper.contractInvoke('setButterCert', [
-      {
-        type: 'String',
-        value: batchId,
-      },
-      {
-        type: 'String',
-        value: retailTransportId,
-      },
-    ]);
-    dispatch(SAVE_DATA({ retailInvoiceId,retailTransportId, batchId, warehouseId }));
+    try {
+      neoHelper.contractInvoke('setWarehouseId', [
+        {
+          type: 'String',
+          value: batchId,
+        },
+        {
+          type: 'String',
+          value: warehouseId,
+        },
+      ]);
+      neoHelper.contractInvoke('setWarehouseReciveDate', [
+        {
+          type: 'String',
+          value: batchId,
+        },
+        {
+          type: 'String',
+          value: retailInvoiceId,
+        },
+      ]);
+
+      dispatch(
+        SAVE_DATA({
+          batchId,
+          warehouseId,
+          warehouseReciveDate,
+        }),
+      );
+    } catch (error) {}
   };
+  const saveBlockChainData2 = async () => {
+    try {
+      neoHelper.contractInvoke('setRetailTransportId', [
+        {
+          type: 'String',
+          value: batchId,
+        },
+        {
+          type: 'String',
+          value: retailTransportId,
+        },
+      ]);
+      neoHelper.contractInvoke('setRetailInvoice', [
+        {
+          type: 'String',
+          value: batchId,
+        },
+        {
+          type: 'String',
+          value: retailInvoiceId,
+        },
+      ]);
+
+      dispatch(
+        SAVE_DATA({
+          retailInvoiceId,
+          retailTransportId,
+          batchId,
+        }),
+      );
+    } catch (error) {}
+  };
+  const handleTabChange = (e, { activeIndex }) => setActiveTab(activeIndex );
 
   const onSubmitHanlder = async () => {
-    if (batchId && warehouseId && retailInvoiceId && retailTransportId) {
+    if (batchId && warehouseId && warehouseReciveDate) {
       setError('');
       saveBlockChainData();
+      setActiveTab(1);
+    } else {
+      setError('Please enter all values');
+    }
+  };
+
+  const onSubmitHanlder2 = async () => {
+    if (batchId && retailInvoiceId && retailTransportId) {
+      setError('');
+      saveBlockChainData2();
       setDataSaved(true);
     } else {
       setError('Please enter all values');
@@ -84,9 +129,112 @@ const RawMaterialSubmissionForm = (props) => {
   if (loggedIn !== true) {
     return <Redirect to='/login' />;
   }
-  if(dataSaved === true) {
+  if (dataSaved === true) {
     return <Redirect to='/thanks' />;
   }
+
+  const panes = [
+    {
+      menuItem: 'Package deliver',
+      render: () => (
+        <Tab.Pane>
+          <Form size='large'>
+            <Segment textAlign='left'>
+              Batch ID
+              <Form.Input
+                fluid
+                icon='box'
+                iconPosition='left'
+                placeholder='Please enter batch Id'
+                value={batchId}
+                onChange={(e) => {
+                  setBatchId(e.target.value);
+                }}
+              />
+              Warehouse ID
+              <Form.Input
+                fluid
+                icon='warehouse'
+                iconPosition='left'
+                placeholder='Please enter warehouse ID'
+                onChange={(e) => {
+                  setWarehouseId(e.target.value);
+                }}
+              />
+              Warehouse Recive Date
+              <Form.Input
+                fluid
+                type='date'
+                icon='calendar'
+                iconPosition='left'
+                placeholder='Please enter warehouse recive date'
+                onChange={(e) => {
+                  setWarehouseReciveDate(e.target.value);
+                }}
+              />
+              <Button color='blue' fluid size='large' onClick={onSubmitHanlder}>
+                Submit
+              </Button>
+              {error ? <span color={'red'}>{error}</span> : ''}
+            </Segment>
+          </Form>
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: 'Package sending',
+      render: () => (
+        <Tab.Pane>
+          <Form size='large'>
+            <Segment textAlign='left'>
+              Batch ID
+              <Form.Input
+                fluid
+                icon='box'
+                iconPosition='left'
+                placeholder='Please enter batch Id'
+                value={batchId}
+                onChange={(e) => {
+                  setBatchId(e.target.value);
+                }}
+              />
+              <div>Shipment ID
+              <Form.Input
+                fluid
+                icon='inbox'
+                iconPosition='left'
+                placeholder='Please enter shipment ID'
+                onChange={(e) => {
+                  setRetailInvoiceId(e.target.value);
+                }}
+              />
+
+              Shipment Transport ID
+              <Form.Input
+                fluid
+                icon='truck'
+                iconPosition='left'
+                placeholder='Please enter transport ID'
+                onChange={(e) => {
+                  setTransportId(e.target.value);
+                }}
+                />
+              <Button
+                color='blue'
+                fluid
+                size='large'
+                onClick={onSubmitHanlder2}
+              >
+                Submit
+              </Button>
+              {error ? <span color={'red'}>{error}</span> : ''}
+                </div>
+            </Segment>
+          </Form>
+        </Tab.Pane>
+      ),
+    },
+  ];
 
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -99,54 +247,7 @@ const RawMaterialSubmissionForm = (props) => {
           {/* <Image src='/logo.png' />  */}
           Warehouse and retail data update
         </Header>
-        <Form size='large'>
-          <Segment raised textAlign="left">
-            Batch ID
-            <Form.Input
-              fluid
-              icon='box'
-              iconPosition='left'
-              placeholder='Please enter batch Id'
-              onChange={(e) => {
-                setBatchId(e.target.value);
-              }}
-            />
-            Warehouse ID
-            <Form.Input
-              fluid
-              icon='warehouse'
-              iconPosition='left'
-              placeholder='Please enter warehouse ID'
-              onChange={(e) => {
-                setWarehouseId(e.target.value);
-              }}
-            />
-            Shipment ID
-            <Form.Input
-              fluid
-              icon='inbox'
-              iconPosition='left'
-              placeholder='Please enter shipment ID'
-              onChange={(e) => {
-                setRetailInvoiceId(e.target.value);
-              }}
-            />
-            Shipment Transport ID
-            <Form.Input
-              fluid
-              icon='truck'
-              iconPosition='left'
-              placeholder='Please enter transport ID'
-              onChange={(e) => {
-                setTransportId(e.target.value);
-              }}
-            />
-            <Button color='blue' fluid size='large' onClick={onSubmitHanlder}>
-              Submit
-            </Button>
-            {error ? <span color={'red'}>{error}</span> : ''}
-          </Segment>
-        </Form>
+        <Tab panes={panes} activeIndex={activeTab}  onTabChange={handleTabChange}/>
       </Grid.Column>
     </Grid>
   );
@@ -156,4 +257,4 @@ const mapStateToProps = (state) => {
   return { isLoggedIn: state.login.isLoggedIn };
 };
 
-export default connect(mapStateToProps, null)(RawMaterialSubmissionForm);
+export default connect(mapStateToProps, null)(Warehouse);

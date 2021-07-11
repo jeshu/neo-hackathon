@@ -21,7 +21,7 @@ const RawMaterialSubmissionForm = (props) => {
   const [batchId, setBatchId] = useState(uuidv4());
   const [dryFruitCert, setDryfruitsCert] = useState();
   const [milkCert, setMilkCert] = useState();
-  const [butterCert, setButterCert] = useState();
+  const [flavorCert, setFlavorCert] = useState();
   const [sugerCert, setSugerCert] = useState();
 
   const [error, setError] = useState();
@@ -66,7 +66,7 @@ const RawMaterialSubmissionForm = (props) => {
       },
       {
         type: 'String',
-        value: butterCert,
+        value: flavorCert,
       },
     ]);
     neoHelper.contractInvoke('setSugerCert', [
@@ -79,11 +79,11 @@ const RawMaterialSubmissionForm = (props) => {
         value: sugerCert,
       },
     ]);
-    dispatch(SAVE_DATA({ butterCert, milkCert, batchId, dryFruitCert,sugerCert }));
+    dispatch(SAVE_DATA({ flavorCert, milkCert, batchId, dryFruitCert,sugerCert }));
   };
 
   const onSubmitHanlder = async () => {
-    if (batchId && dryFruitCert && milkCert && butterCert && sugerCert) {
+    if (batchId && dryFruitCert && milkCert && flavorCert && sugerCert) {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
@@ -135,14 +135,14 @@ const RawMaterialSubmissionForm = (props) => {
                 setMilkCert(e.target.value);
               }}
             />
-            Butter Certificate ID
+            Flavor Certificate ID
             <Form.Input
               fluid
               icon='certificate'
               iconPosition='left'
-              placeholder='Please enter butter quality certificate ID'
+              placeholder='Please enter flavor quality certificate ID'
               onChange={(e) => {
-                setButterCert(e.target.value);
+                setFlavorCert(e.target.value);
               }}
             />
 

@@ -22,7 +22,7 @@ const Thankyou = (props) => {
           <Segment textAlign='left'>Batch ID: {props.batchId}</Segment>
           <Segment textAlign='left'>Dry Fruit certificateId: {props.dryFruitCert}</Segment>
           <Segment textAlign='left'>Milk certificateId: {props.milkCert}</Segment>
-          <Segment textAlign='left'>Butter certificateId: {props.butterCert}</Segment>
+          <Segment textAlign='left'>Flavor certificateId: {props.flavorCert}</Segment>
           <Segment textAlign='left'>Suger certificateId: {props.sugerCert}</Segment>
         </Segment.Group>
 

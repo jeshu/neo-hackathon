@@ -17,20 +17,21 @@ const Thankyou = (props) => {
         <Divider color='violet' />
         <Header as='h3' color='violet' textAlign='center'>
           {/* <Image src='/logo.png' />  */}
-          Warehoue and dispatch details.
+          Warehouse and dispatch details.
         </Header>
         <Segment.Group attached='top' textAlign="left">
-          <Segment textAlign='left'>Batch ID: {props.batchId}</Segment>
-          <Segment textAlign='left'>Warehour ID: {props.warehouseId}</Segment>
-          <Segment textAlign='left'>Retail Invoice ID: {props.retailInvoiceId}</Segment>
-          <Segment textAlign='left'>Retail Transport ID: {props.retailTransportId}</Segment>
+          <Segment textAlign='left'>Batch ID : {props.batchId}</Segment>
+          <Segment textAlign='left'>Warehouse ID : {props.warehouseId}</Segment>
+          <Segment textAlign='left'>Package recive date : {props.warehouseReciveDate}</Segment>
+          <Segment textAlign='left'>Retail Invoice ID : {props.retailInvoiceId}</Segment>
+          <Segment textAlign='left'>Retail Transport ID : {props.retailTransportId}</Segment>
         </Segment.Group>
 
         <Divider color='violet' />
         <Link to='/'><i aria-hidden="true" className="add icon" color="blue"></i>Add more data</Link>
         <br />
         <br />
-        <Link to='/'><i aria-hidden="true" className="shop icon" color="blue"></i>Visit Retail site</Link>
+        <a href='http://localhost:3013/'><i aria-hidden="true" className="shop icon" color="blue"></i>Visit Retail site</a>
       </Grid.Column>
     </Grid>
   );

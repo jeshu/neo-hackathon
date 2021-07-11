@@ -23,7 +23,6 @@ const Thankyou = (props) => {
           <Segment textAlign='left'>Batch ID: {props.batchId}</Segment>
           <Segment textAlign='left'>Retail Store ID: {props.retailStoreId}</Segment>
           <Segment textAlign='left'>Batch Recive date: {props.reciveDate}</Segment>
-          <Segment textAlign='left'>Product Sell date: {props.sellDate}</Segment>
         </Segment.Group>
 
         <Divider color='violet' />
