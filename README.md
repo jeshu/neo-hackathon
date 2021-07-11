@@ -34,18 +34,23 @@
 
 ## Installation
 
-Below dependencies were installed to develop this project:
+Below listed steps were performed to develop this project:
 
-- We need to install [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
-- Thereafter install the Neo3 Boa dependencies. Navigate to the folder where you have taken the checkout of the solution in your local machine and perform below listed steps:
+- [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
+- Thereafter we installed the Neo3 Boa dependencies. We performed below listed steps from the root folder:
 ```sh
 cd contracts\FoodSafetyContract
 python -m venv venv
 venv\Scripts\activate.bat
 pip install neo3-boa
 ```
-- Install the [NPM](https://nodejs.org/en/download/)
-- Then install the Neon js by performing below listed steps. This will install Neon js globally on your machine.
+- In order to compile the Neo contract we ran below command:
+```sh
+cd contracts\FoodSafetyContract
+neo3-boa FoodSafetyContract.py
+```
+- [NPM](https://nodejs.org/en/download/)
+- Then we installed the Neon js by performing below listed steps. This installed Neon js globally on our machine.
 ```sh
 npm install -g @cityofzion/neon-js@next
 ```
