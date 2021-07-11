@@ -58,9 +58,9 @@ dotnet tool install Neo.Express -g
 
 ![Output](/images/neoexpress/snapshot3.png)
 
-- Then for the all ClientApps under the **clientApps** folder replace the contract hash with the one generated from the step above.In order to replace it, navigate to the **<<clientApp>>/src/constansts/Const.js** and replace the scriptHash key.
+- Then for the all ClientApps under the **clientApps** folder replace the contract hash with the one generated from the step above.In order to replace it, navigate to the clientApp and inside that under **/src/constansts/Const.js** and replace the scriptHash key.
 
-- Thereafter navigate to all the Client Apps listed on the Projects section above and follow the steps to run them on your local environment.
+- Thereafter navigate to all the Client Apps listed on the Projects section above and follow the steps mentioned in their README.md to run them on your local environment.
 
 
 ## Development Path
