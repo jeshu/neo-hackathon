@@ -5,7 +5,7 @@ Run the below command in order to install the dependencies for the manufacturing
 npm install 
 ```
 ## Running the App
-Run the below command in order to start the manufacturing app.Please note this app runs on port **3011**.
+Run the below command in order to start the manufacturing app. Please note this app runs on port **3011**.
 ```sh
 npm start 
 ```

@@ -5,7 +5,7 @@ Run the below command in order to install the dependencies for the raw material 
 npm install 
 ```
 ## Running the App
-Run the below command in order to start the raw material app.Please note this app runs on port **3010**.
+Run the below command in order to start the raw material app. Please note this app runs on port **3010**.
 ```sh
 npm start 
 ```
