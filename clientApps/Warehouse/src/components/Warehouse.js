@@ -60,7 +60,7 @@ const Warehouse = (props) => {
         },
         {
           type: 'String',
-          value: retailInvoiceId,
+          value: warehouseReciveDate,
         },
       ]);
 
