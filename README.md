@@ -12,14 +12,14 @@
 
 ## Projects:
 
-- [Neo Smart Contract](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/contracts/FoodSafetyContract) 
+- [Neo Smart Contract](https://github.com/jeshu/neo-hackathon/tree/master/contracts/FoodSafetyContract) 
 - Client Apps:
-  - [Manufacturing App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/ManufacturingApp)
-  - [Raw Material App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RawMaterialApp)
-  - [Reader App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/ReaderApp)
-  - [Retail Store App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/RetailStore)
-  - [Warehouse App](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/clientApps/Warehouse)
-- [IOT Server](https://github.com/jeshu/neo-hackathon/tree/backup/27-Jun/IoTServer)
+  - [Manufacturing App](https://github.com/jeshu/neo-hackathon/tree/master/clientApps/ManufacturingApp)
+  - [Raw Material App](https://github.com/jeshu/neo-hackathon/tree/master/clientApps/RawMaterialApp)
+  - [Reader App](https://github.com/jeshu/neo-hackathon/tree/master/clientApps/ReaderApp)
+  - [Retail Store App](https://github.com/jeshu/neo-hackathon/tree/master/clientApps/RetailStore)
+  - [Warehouse App](https://github.com/jeshu/neo-hackathon/tree/master/clientApps/Warehouse)
+- [IOT Server](https://github.com/jeshu/neo-hackathon/tree/master/IoTServer)
 
 ## High Level Architecture Diagram: 
 
@@ -40,7 +40,7 @@
 ```sh
 dotnet tool install Neo.Express -g
 ```
-- Install the [Visual Studio code](https://code.visualstudio.com/download) and install the [Neo Blockchain Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) in that.
+- Install the [Visual Studio code](https://code.visualstudio.com/download) and thereafter install the [Neo Blockchain Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) in that.
 
 
 ## Running the Demo
@@ -50,17 +50,17 @@ dotnet tool install Neo.Express -g
 
 ![Output](/images/neoexpress/snapshot1.png)
 
-- Once the Neo Express is started, transfer some NEO and GAS from 'genesis' account to 'chirag' account as shown below.
+- Once the Neo Express is started, transfer some NEO and GAS from **genesis** account to **chirag** account as shown below.
 
 ![Output](/images/neoexpress/snapshot2.png)
 
-- Then Deploy the FoodSafetyContract smart contract using the option shown below:
+- Then Deploy the **FoodSafetyContract** smart contract using the option shown below:
 
 ![Output](/images/neoexpress/snapshot3.png)
 
-- Then for the all ClientApps under the **clientApps** replace the contract hash with the one generated from the step above.In order to replace it, navigate to the <<clientApp>>/src/constansts/Const.js and replace the scriptHash key.
+- Then for the all ClientApps under the **clientApps** folder replace the contract hash with the one generated from the step above.In order to replace it, navigate to the **<<clientApp>>/src/constansts/Const.js** and replace the scriptHash key.
 
-- Thereafter navigate to all the client Apps listed on the Projects section and follow the steps to install them on your local environment.
+- Thereafter navigate to all the Client Apps listed on the Projects section above and follow the steps to run them on your local environment.
 
 
 ## Development Path
