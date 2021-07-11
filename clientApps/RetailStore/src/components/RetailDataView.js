@@ -14,6 +14,7 @@ import {
 } from 'semantic-ui-react';
 import { SAVE_DATA } from '../actions';
 import { APP_TITLE } from '../Consts';
+import IoTHandler from '../utils/IotHandler';
 
 const RetailDataView = (props) => {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ const RetailDataView = (props) => {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
+      IoTHandler('temperature/retailstore', batchId);
     } else {
       setError('Please enter all values');
     }

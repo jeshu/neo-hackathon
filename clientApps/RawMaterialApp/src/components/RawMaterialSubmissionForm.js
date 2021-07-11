@@ -59,7 +59,7 @@ const RawMaterialSubmissionForm = (props) => {
         value: milkCert,
       },
     ]);
-    neoHelper.contractInvoke('setButterCert', [
+    neoHelper.contractInvoke('setFlavorCert', [
       {
         type: 'String',
         value: batchId,

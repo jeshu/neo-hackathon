@@ -7,31 +7,6 @@ KEY_QUALITY = 'temperature'
 
 TEMP_RANGE = range(-22, -18)
 QUALITY_MIN = 90
-LIST_MAP = [
-    "Dry fruits certificate",
-    "Milk certificate",
-    "Flavor certificate",
-    "Suger certificate",
-    "Mixture manufacture",
-    "Freezing manufacture",
-    "Packing manufacture",
-    "Temperature at manufacture",
-    "Expiry Date",
-    "Manufacturing Date",
-    "Shipment ID",
-    "Shipment Date",
-    "Shipment Transport ID",
-    "Temperature At Shipment Transport",
-    "Warehouse ID",
-    "Warehouse Recive Date"
-    "Temperature At Warehouse",
-    "Retail Transport ID",
-    "Retail Invoice ID",
-    "Temperature At Retail Transport",
-    "Retail Store ID",
-    "Recive at Retail date",
-    "Temperature At Store"
-]
 
 
 def validateData(data: int, key: str) -> bool:
@@ -67,36 +42,32 @@ def setSugerCert(batchId: str, data: str):
 @public
 def setMixtureQuality(batchId: str, data: int):
     isValid = validateData(data, KEY_QUALITY)
-    if isValid == True:
-        put(batchId + '5', data)
-    else:
+    put(batchId + '5', data)
+    if isValid == False:
         put(batchId + 'error', 'Quality in step 1 (Mixutre) is not OK, ')
 
 
 @public
 def setViscosityQuality(batchId: str, data: int):
     isValid = validateData(data, KEY_QUALITY)
-    if isValid == True:
-        put(batchId + '6', data)
-    else:
+    put(batchId + '6', data)
+    if isValid == False:
         put(batchId + 'error', 'Quality in step 2 (Viscosity) is not OK, ')
 
 
 @public
 def setPackingQuality(batchId: str, data: int):
     isValid = validateData(data, KEY_QUALITY)
-    if isValid == True:
-        put(batchId + '7', data)
-    else:
+    put(batchId + '7', data)
+    if isValid == False:
         put(batchId + 'error', 'Quality in step 3 (Packing) is not OK, ')
 
 
 @public
 def setTemperature(batchId: str, data: int):
     isValid = validateData(data, KEY_TEMP)
-    if isValid == True:
-        put(batchId + '8', data)
-    else:
+    put(batchId + '8', data)
+    if isValid == False:
         put(batchId + 'error', 'Temperature at factory not in range, ')
 
 
@@ -128,9 +99,8 @@ def setShipmentTransportId(batchId: str, data: int):
 @public
 def setTemperatureAtShipmentTransport(batchId: str, data: int):
     isValid = validateData(data, KEY_TEMP)
+    put(batchId + '14', data)
     if isValid == True:
-        put(batchId + '14', data)
-    else:
         put(batchId + 'error', 'Temperature at shipment transport not in range, ')
 
 
@@ -147,9 +117,8 @@ def setWarehouseReciveDate(batchId: str, data: str):
 @public
 def setTemperatureAtWarehouse(batchId: str, data: int):
     isValid = validateData(data, KEY_TEMP)
-    if isValid == True:
-        put(batchId + '17', data)
-    else:
+    put(batchId + '17', data)
+    if isValid == False:
         put(batchId + 'error', 'Temperature at warehouse not in range, ')
 
 
@@ -166,15 +135,15 @@ def setRetailInvoice(batchId: str, data: str):
 @public
 def setTemperatureAtRetailTransport(batchId: str, data: int):
     isValid = validateData(data, KEY_TEMP)
-    if isValid == True:
-        put(batchId + '20', data)
-    else:
+    put(batchId + '20', data)
+    if isValid == False:
         put(batchId + 'error', 'Temperature at retail transport not in range, ')
 
 
 @public
 def setRetailStoreId(batchId: str, data: str):
     put(batchId + '21', data)
+
 
 @public
 def setRetailReciveDate(batchId: str, data: str):
@@ -184,10 +153,10 @@ def setRetailReciveDate(batchId: str, data: str):
 @public
 def setTemperatureAtStore(batchId: str, data: int):
     isValid = validateData(data, KEY_TEMP)
-    if isValid == True:
-        put(batchId + '23', data)
-    else:
+    put(batchId + '23', data)
+    if isValid == False:
         put(batchId + 'error', 'Temperature at retail store not in range, ')
+
 
 @public
 def setProductOK(batchId: str, data: bool):
@@ -208,13 +177,10 @@ def IsProductOK(batchId: str) -> bool:
 def getAllInfo(batchId: str) -> Any:
     allInfo = []
     data = find(batchId)
-    i = 0
     while data.next():
         currentObject = data.value
-        storedValue = currentObject[1]
-        bytesData = bytes.to_str(cast(bytes, storedValue))
-        allInfo.append(LIST_MAP[i] + "|" + bytesData)
-        i = i+1
+        allInfo.append(bytes.to_str(cast(
+            bytes, currentObject[0])) + "|" + bytes.to_str(cast(bytes, currentObject[1])))
     return allInfo
 
 

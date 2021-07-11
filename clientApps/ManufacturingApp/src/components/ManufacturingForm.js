@@ -14,6 +14,7 @@ import {
 } from 'semantic-ui-react';
 import { SAVE_DATA } from '../actions';
 import { APP_TITLE } from '../Consts';
+import IoTHandler from '../utils/IotHandler';
 
 const ManufacturingForm = (props) => {
   const dispatch = useDispatch();
@@ -24,6 +25,11 @@ const ManufacturingForm = (props) => {
   const [shipmentId, setShipmentId] = useState();
   const [shipmentTransportId, setShipmentTransportId] = useState();
   const [shipmentDate, setShipmentDate] = useState();
+
+  const [quality1OK, setQuality1OK] = useState(false);
+  const [quality2OK, setQuality2OK] = useState(false);
+  const [quality3OK, setQuality3OK] = useState(false);
+  const [temperature, setTemperature] = useState(false);
 
   const [error, setError] = useState();
   const [dataSaved, setDataSaved] = useState(false);
@@ -107,6 +113,7 @@ const ManufacturingForm = (props) => {
       setError('');
       saveBlockChainData();
       setDataSaved(true);
+      IoTHandler('temperature/warehouseshipment', batchId);
     } else {
       setError('Please enter all values');
     }
@@ -131,6 +138,7 @@ const ManufacturingForm = (props) => {
         </Header>
         <Form size='large'>
           <Segment raised textAlign='left'>
+            Batch ID
             <Form.Input
               fluid
               icon='box'
@@ -141,6 +149,58 @@ const ManufacturingForm = (props) => {
               }}
             />
             Manufacturing date
+              <Segment.Group>
+              <Segment.Group horizontal>
+              <Segment style={{ width: '50%' }}>
+                <Button  fluid
+                  color={!quality1OK ? 'blue' : 'teal'}
+                  {...((!batchId || quality1OK) && { disabled: 'disabled' })}
+                  onClick={async ()=>{
+                    const data = await IoTHandler('mixing', batchId);
+                    if(!data.error) {
+                      setQuality1OK(true);
+                    }
+                  }}
+                >Mixing Quality</Button>
+              </Segment>
+              <Segment style={{ width: '50%' }}>
+                <Button fluid
+                  color={!quality2OK ? 'blue' : 'teal'}
+                  {...((!batchId ||  quality2OK) && { disabled: 'diabled' })}
+                  onClick={async ()=>{
+                    const data = await IoTHandler('viscosity', batchId);
+                    if(!data.error) {
+                      setQuality2OK(true);
+                    }
+                  }}>Viscosity Quality</Button>
+              </Segment>
+              </Segment.Group>
+              <Segment.Group horizontal>
+              <Segment style={{ width: '50%' }}>
+                <Button fluid
+                  color={!quality3OK ? 'blue' : 'teal'}
+                  {...((!batchId || quality3OK) && { disabled: 'disabled' })}
+                  onClick={async ()=>{
+                    const data = await IoTHandler('packing', batchId);
+                    if(!data.error) {
+                      setQuality3OK(true);
+                    }
+                  }}>Packing Quality</Button>
+              </Segment>
+              <Segment style={{ width: '50%' }}>
+                <Button fluid
+                  color={!temperature ? 'blue' : 'teal'}
+                  {...((!batchId || temperature) && { disabled: 'diabled' })}
+                  onClick={async ()=>{
+                    const data = await IoTHandler('temperature/manufacture', batchId);
+                    if(!data.error) {
+                      setTemperature(true);
+                    }
+                  }}
+                >Temerature</Button>
+              </Segment>
+              </Segment.Group>
+              </Segment.Group>
             <Form.Input
               fluid
               type='date'

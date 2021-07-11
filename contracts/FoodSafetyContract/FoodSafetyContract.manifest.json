@@ -1,0 +1,462 @@
+{
+    "name": "FoodSafetyContract",
+    "groups": [],
+    "abi": {
+        "methods": [
+            {
+                "name": "setDryfruitsCert",
+                "offset": 98,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setMilkpowderCert",
+                "offset": 120,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setFlavorCert",
+                "offset": 142,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setSugerCert",
+                "offset": 164,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setMixtureQuality",
+                "offset": 186,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setViscosityQuality",
+                "offset": 283,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setPackingQuality",
+                "offset": 382,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setTemperature",
+                "offset": 479,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setExpiryDate",
+                "offset": 574,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setManufactureDate",
+                "offset": 596,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setShipmentId",
+                "offset": 619,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setShipmentDate",
+                "offset": 642,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setShipmentTransportId",
+                "offset": 665,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setTemperatureAtShipmentTransport",
+                "offset": 688,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setWarehouseId",
+                "offset": 795,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setWarehouseReciveDate",
+                "offset": 818,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setTemperatureAtWarehouse",
+                "offset": 841,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setRetailTransportId",
+                "offset": 939,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setRetailInvoice",
+                "offset": 962,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setTemperatureAtRetailTransport",
+                "offset": 985,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setRetailStoreId",
+                "offset": 1090,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setRetailReciveDate",
+                "offset": 1113,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setTemperatureAtStore",
+                "offset": 1136,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Integer"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setProductOK",
+                "offset": 1237,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Boolean"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "setExpection",
+                "offset": 1259,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    },
+                    {
+                        "name": "data",
+                        "type": "Boolean"
+                    }
+                ],
+                "returntype": "Void",
+                "safe": false
+            },
+            {
+                "name": "IsProductOK",
+                "offset": 1285,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Boolean",
+                "safe": false
+            },
+            {
+                "name": "getAllInfo",
+                "offset": 1317,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "Any",
+                "safe": false
+            },
+            {
+                "name": "GetExeception",
+                "offset": 1412,
+                "parameters": [
+                    {
+                        "name": "batchId",
+                        "type": "String"
+                    }
+                ],
+                "returntype": "String",
+                "safe": false
+            },
+            {
+                "name": "_initialize",
+                "offset": 1448,
+                "parameters": [],
+                "returntype": "Void",
+                "safe": false
+            }
+        ],
+        "events": []
+    },
+    "permissions": [
+        {
+            "contract": "*",
+            "methods": "*"
+        }
+    ],
+    "trusts": [],
+    "features": [],
+    "supportedstandards": [],
+    "extra": null
+}

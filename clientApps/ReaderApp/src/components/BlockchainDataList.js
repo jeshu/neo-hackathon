@@ -5,10 +5,39 @@ import { rpcAddress, scriptHash, userPvtKey } from '../constansts/Const';
 import { rpc, sc, wallet, tx, u } from '@cityofzion/neon-core';
 import { Form, Grid, Header, Segment, Divider } from 'semantic-ui-react';
 
+
+const mapping = [
+    "Dry fruits certificate",
+    "Milk certificate",
+    "Flavor certificate",
+    "Suger certificate",
+    "IoT | Mixture Quality",
+    "IoT | Freezing Quality",
+    "IoT | Packing Quality",
+    "IoT | Temperature at manufacture",
+    "Expiry Date",
+    "Manufacturing Date",
+    "Shipment ID",
+    "Shipment Date",
+    "Shipment Transport ID",
+    "IoT | Temperature At Shipment Transport",
+    "Warehouse ID",
+    "Warehouse Recive Date",
+    "IoT | Temperature At Warehouse",
+    "Retail Transport ID",
+    "Retail Invoice ID",
+    "IoT | Temperature At Retail Transport",
+    "Retail Store ID",
+    "Recive at Retail date",
+    "IoT | Temperature At Store",
+]
+
+
 const BlockchainDataList = (props) => {
   const [batchId, setBatchId] = useState();
   const [data, setData] = useState();
   
+  const intMapping = [4,5,6,7,13,16,19,22]
   const fetchBlockchainData = () => {
     const sb = new sc.ScriptBuilder();
     const rpcClient = new rpc.RPCClient(rpcAddress);
@@ -29,7 +58,11 @@ const BlockchainDataList = (props) => {
           const val =  u.HexString.fromBase64(item.value)
           .toAscii()
           .split('|');
-        
+          console.log(val[0], val[1]);
+          val[0] = mapping[parseInt(val[0].replace(batchId, '')) -1]
+          if(val[0] && val[0].indexOf('IoT') !== -1) {
+            val[1] = val[1].charCodeAt(0);
+          }
           return val;
         });
         setData(dataMap);
