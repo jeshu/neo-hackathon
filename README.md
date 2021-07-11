@@ -4,7 +4,7 @@
 
 ## High Level Architecture Diagram: 
 
-![Output](/images/architecture_diagram.png)
+![Output](/images/blockchain_architecture_diagram.png)
 
 ## Technology Stack
 
