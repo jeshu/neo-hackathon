@@ -4,6 +4,7 @@
 
 ## High Level Architecture Diagram: 
 
+![Output](/images/architecture_diagram.png)
 
 ## Technology Stack
 
@@ -15,7 +16,7 @@
 ## Installation
 
 - We need to install [Python 3.7 or later](https://www.python.org/downloads/release/python-379/)
-- Thereafter install the Neo3 Boa dependencies. Navigate to the folder you have taken the checkout of the solution in your local machine and perform below listed steps:
+- Thereafter install the Neo3 Boa dependencies. Navigate to the folder where you have taken the checkout of the solution in your local machine and perform below listed steps:
 ```sh
 cd contracts\NeoHackathon
 python -m venv venv
