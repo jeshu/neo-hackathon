@@ -94,6 +94,3 @@ npm install -g @cityofzion/neon-js@next
 
 - We would love to integrate blockchain with the actual IOT device to fetch real world data.
 - We would try to make the contracts more dynamic and efficient in nature.
-
-
-## Application Screenshots
